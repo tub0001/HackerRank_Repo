@@ -1,0 +1,26 @@
+import java.util.Scanner;
+import java.time.LocalDate;
+public class solution{
+public static String getDay(String day,String month,String year){
+   int y=Integer.parseInt(year);
+   int m=Integer.parseInt(month);
+   int d=Integer.parseInt(day);
+    
+    if(y>2000 && y<3000){
+        
+        LocalDate date=LocalDate.of(y,m,d);
+        return (date.getDayOfWeek().toString());
+    }else{
+        return " ";
+    }
+}
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String month = in.next();
+        String day = in.next();
+        String year = in.next();
+        
+        System.out.println(getDay(day, month, year));
+    }
+}
