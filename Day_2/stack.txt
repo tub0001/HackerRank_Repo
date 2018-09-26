@@ -1,0 +1,78 @@
+import java.util.*;
+class Solution{
+	
+	public static void main(String []argh)
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		while (sc.hasNext()) {
+			String input=sc.next();
+            
+            Stack<Character> s = new Stack<>();
+            int check = 0;
+            for(char c : input.toCharArray()) {
+                if(c=='{' || c == '[' || c == '(') {
+                    s.push(c);
+                }
+                else {
+                    Character carr[] = {};
+                    if(c == '}') {
+                        if(s.search('{') == -1) {
+                            System.out.println("false");
+                            check = 1;
+                            break;
+                        }
+                        for(int i=0;i<s.search('{')-1;i++) {
+                            carr[i] = (Character)s.pop();
+                        }
+                        s.pop();
+                        if(carr.length > 0) {
+                            for(int j=carr.length-1;j>=0;j--) {
+                                s.push(carr[j]);
+                            }
+                        }
+                    }    
+                    if(c == ']') {
+                        if(s.search('[') == -1) {
+                            System.out.println("false");
+                            check = 1;
+                            break;
+                        }
+                        for(int i=0;i<s.search('[')-1;i++) {
+                            carr[i] = (Character)s.pop();
+                        }
+                        s.pop();
+                        if(carr.length > 0) {
+                            for(int j=carr.length-1;j>=0;j--) {
+                                s.push(carr[j]);
+                            }
+                        }
+                    }
+                    if(c == ')') {
+                        if(s.search('(') == -1) {
+                            System.out.println("false");
+                            check = 1;
+                            break;
+                        }
+                        for(int i=0;i<s.search('(')-1;i++) {
+                            carr[i] = (Character)s.pop();
+                        }
+                        s.pop();
+                        if(carr.length > 0) {
+                            for(int j=carr.length-1;j>=0;j--) {
+                                s.push(carr[j]);
+                            }
+                        }
+                    }
+                }
+            }
+            if(s.size() == 0 && check != 1) {
+                System.out.println("true");
+            }
+            else if(check != 1) {
+                System.out.println("false");
+            }
+        }
+		}
+	}
+
