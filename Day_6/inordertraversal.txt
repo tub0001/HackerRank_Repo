@@ -1,0 +1,25 @@
+/* you only have to complete the function given below.  
+Node is defined as  
+
+class Node {
+    int data;
+    Node left;
+    Node right;
+}
+
+*/
+
+    public static void inOrder(Node root) {
+            if(root==null){
+            return ;
+        }else{
+         Node left1=root.left;
+         Node right1 = root.right;
+
+        inOrder(left1);
+        System.out.print(root.data+" ");
+        inOrder(right1);
+         
+        
+        }
+    }
