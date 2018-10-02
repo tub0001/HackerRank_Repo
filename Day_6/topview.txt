@@ -1,0 +1,36 @@
+   public static void topView(Node root) {
+        Node temp=root;
+         Map<Integer, ArrayList<Integer>> map = new TreeMap<Integer, ArrayList<Integer>>();
+        int level=0;
+        int dist=0;
+         fillMap(temp,level,dist,map);
+        for (Map.Entry<Integer, ArrayList<Integer>> entry : map.entrySet())
+          {
+               int key = entry.getKey();
+               ArrayList<Integer> value = entry.getValue();
+               System.out.print(value.get(1)+" ");
+          }
+      
+    }
+    public static void fillMap(Node node,int level,int distance,Map map){
+        ArrayList<Integer> list=(ArrayList)map.get(distance);
+        if(list!=null){
+            if(level<list.get(0))
+            {
+                ArrayList<Integer> list1=new ArrayList<Integer>();
+                list1.add(level);
+                list1.add(node.data);
+                map.put(distance,list1);
+            }
+        }
+        else{
+            ArrayList<Integer> list1=new ArrayList<Integer>();
+            list1.add(level);
+            list1.add(node.data);
+            map.put(distance,list1);
+        }
+        if(node.left!=null)
+            fillMap(node.left,level+1,distance-1,map);
+        if(node.right!=null)
+            fillMap(node.right,level+1,distance+1,map);
+    }
