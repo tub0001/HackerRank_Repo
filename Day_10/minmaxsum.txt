@@ -1,0 +1,22 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        long[] arr = new long[5];
+        
+        for(int arr_i=0; arr_i < 5; arr_i++){
+            arr[arr_i] = in.nextLong();
+            
+        }
+        Arrays.sort(arr);
+        long max_sum=arr[1]+arr[2]+arr[3]+arr[4];
+        long min_sum=arr[1]+arr[2]+arr[3]+arr[0];
+        System.out.println(min_sum+" "+max_sum);
+    }
+}
