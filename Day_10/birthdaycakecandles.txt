@@ -1,0 +1,31 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int[] ar = new int[n];
+        int max=0,x=0;
+        for(int ar_i = 0; ar_i < n; ar_i++){
+            ar[ar_i] = in.nextInt();
+           
+        }
+        Arrays.sort(ar);
+        
+        for(int ar_i = 0; ar_i < n; ar_i++){ 
+         if( ar[ar_i]>=ar[n-1])
+            {
+                max=ar[ar_i];
+                x++;
+            }
+        }     
+         
+        System.out.println(x);
+    }
+}
