@@ -1,0 +1,51 @@
+    // Complete the compareLists function below.
+
+    /*
+     * For your reference:
+     *
+     * SinglyLinkedListNode {
+     *     int data;
+     *     SinglyLinkedListNode next;
+     * }
+     *
+     */
+    static boolean compareLists(SinglyLinkedListNode head1, SinglyLinkedListNode head2) {
+         
+        SinglyLinkedListNode current1=head1;
+          SinglyLinkedListNode current2=head2;
+        int count=0;
+        int count1=0;
+        while(current1!=null)
+        {
+            current1=current1.next;
+            count++;
+        }
+          while(current2!=null)
+        {
+            current2=current2.next;
+            count1++;
+        }
+        current1=head1;
+        current2=head2;
+        if(count!=count1)
+        {
+            return false;
+        }
+        else{
+           while(current1!=null&&current2!=null)
+           {
+               if(current1.data==current2.data)
+               {
+                   current1=current1.next;
+                   current2=current2.next;
+               }
+               else{
+                   return false;
+               }
+           }
+        }
+        return true;
+        
+        
+
+    }

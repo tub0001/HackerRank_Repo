@@ -1,0 +1,46 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+
+public class Solution {
+
+    // Complete the dynamicArray function below.
+     public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int queries = in.nextInt();
+         ArrayList<ArrayList<Integer>> ar=new ArrayList<ArrayList<Integer>>(n);
+         for(int i=0;i<n;i++)
+         {
+             ar.add(new ArrayList<Integer>());
+         }
+         int lastAnswer=0;
+         for(int j=0;j<queries;j++)
+         {
+             int q1=in.nextInt();
+             int q2=in.nextInt();
+             int q3=in.nextInt();
+              int seq = ((q2 ^ lastAnswer ) % n);
+            ArrayList<Integer> sequence = ar.get(seq);
+            
+            if(q1 == 1){
+                sequence.add(q3);
+            }
+             else{ 
+                lastAnswer = sequence.get(q3 % sequence.size());
+                System.out.println(lastAnswer);
+            }
+             
+             
+         }
+     }
+   
+}
